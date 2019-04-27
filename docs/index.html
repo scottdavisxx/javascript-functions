@@ -80,6 +80,20 @@
 
     <hr>
     
+    <h2>includes();</h2>
+
+    <p>Type the name of an animal to see if it is an NFL mascot.</p>
+
+    <input type="text" id="animal" placeholder="Animal/Mascot (plural)">
+    <button onClick="checkMascots()">Submit</button>
+
+    <p id="mascotResult"></p>
+    <p id="customComment"></p>
+
+    <hr>
+    
+    
+    
     <script>
 function printInitials() {
     var fName = document.getElementById("fName").value;
@@ -158,7 +172,39 @@ function checkNumber() {
         }
     }
 
-}    
+}   
+        
+/* includes() */
+
+function checkMascots () {
+    const MASCOTS = ["Cardinals", "Falcons", "Ravens", "Bills", "Panthers", "Bears",
+                     "Bengals", "Browns", "Cowboys", "Broncos", "Lions", "Packers",
+                     "Texans", "Colts", "Jaguars", "Chiefs", "Chargers", "Rams", 
+                     "Dolphins", "Vikings", "Patriots", "Saints", "Jets", "Raiders",
+                     "Eagles", "Steelers", "49ers", "Seahawks", "Buccaneers", "Titans", "Redskins"];
+
+    var mascotEntered = document.getElementById("animal").value;
+
+    if (MASCOTS.includes(mascotEntered)) {
+        document.getElementById("mascotResult").innerHTML = "There is an NFL team with this mascot";
+    } else {
+        document.getElementById("mascotResult").innerHTML = "There is NOT an NFL team with this mascot";
+    }
+
+    switch(mascotEntered) {
+        case "Patriots":
+            document.getElementById("customComment").innerHTML = "... and they're a bunch of cheaters";
+            break;
+        case "Raiders":
+            document.getElementById("customComment").innerHTML = "A team to be hated";
+            break;
+        case "Broncos":
+            document.getElementById("customComment").innerHTML = "THE BEST TEAM EVER GO BRONCOS!!!!!!";
+            break;
+        }
+
+}
+        
 </script>
 
 </body>
